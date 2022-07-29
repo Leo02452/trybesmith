@@ -13,8 +13,8 @@ export default class ProductsController {
   };
 
   public getAll = async (_req: Request, res: Response) => {
-    const user = await this.productsService.getAll();
+    const products = await this.productsService.getAll();
 
-    res.status(200).json(user);
+    res.status(200).json(products);
   };
 }
