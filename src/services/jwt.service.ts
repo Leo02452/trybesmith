@@ -4,9 +4,11 @@ import UserInterface from '../interfaces/user.interface';
 
 dotenv.config();
 
+const JWT_SECRET = 'claudio';
+
 const jwtService = {
   createToken: (data: UserInterface) => {
-    const token = jwt.sign(data, 'minhaSenhaSecreta');
+    const token = jwt.sign(data, JWT_SECRET);
     return token;
   },
 };
