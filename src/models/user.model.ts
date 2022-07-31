@@ -19,4 +19,12 @@ export default class UserModel {
     const { insertId } = dataInserted;
     return { id: insertId, ...user };
   }
+
+  public async getByName(username: string): Promise<UserInterface> {
+    const result = await this.connection
+      .execute('SELECT * FROM Trybesmith.Users WHERE username=?', [username]);
+    const [rows] = result;
+    const [user] = rows as UserInterface[];
+    return user;
+  }
 }
