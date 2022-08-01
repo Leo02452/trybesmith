@@ -7,6 +7,8 @@ const errorMiddleware = (err: Error, _req: Request, res: Response, _next: NextFu
       return res.status(400).json({ message });
     case 'UnauthorizedError':
       return res.status(401).json({ message });
+    case 'UnprocessableEntityError':
+      return res.status(422).json({ message });
     default:
       return res.sendStatus(500);
   }
