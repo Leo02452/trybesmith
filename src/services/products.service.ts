@@ -29,4 +29,8 @@ export default class ProductsService {
     const products = await this.model.getAll();
     return products;
   }
+
+  public update(orderId: number, productId: number): void {
+    this.model.update(orderId, productId);
+  }
 }

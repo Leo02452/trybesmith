@@ -30,4 +30,8 @@ export default class UsersService {
     await this.model.create(user);
     return token;
   }
+
+  public async getByName(username: string): Promise<UserInterface> {
+    return this.model.getByName(username);
+  }
 }
