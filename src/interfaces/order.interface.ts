@@ -1,7 +1,7 @@
 interface OrderInterface {
   id?: number
   userId: number
-  ProductsIds: number[]
+  productsIds: number[]
 }
 
 export default OrderInterface;

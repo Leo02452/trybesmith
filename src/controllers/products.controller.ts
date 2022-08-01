@@ -9,9 +9,9 @@ export default class ProductsController {
 
     this.productsService.validateBody(product);
 
-    const productCreated = await this.productsService.create(product);
+    const createdProduct = await this.productsService.create(product);
 
-    res.status(201).json(productCreated);
+    res.status(201).json(createdProduct);
   };
 
   public getAll = async (_req: Request, res: Response) => {
