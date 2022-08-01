@@ -2,6 +2,7 @@ import Joi from 'joi';
 import connection from '../models/connection';
 import UserModel from '../models/user.model';
 import jwtService from './jwt.service';
+import { CustomError } from './utils';
 
 const authService = {
   validateBody: async (unknown: unknown) => {
@@ -19,9 +20,7 @@ const authService = {
     const user = await userModel.getByName(username);
 
     if (!user || user.password !== password) {
-      const error = new Error('Username or password invalid');
-      error.name = 'UnauthorizedError';
-      throw error;
+      throw new CustomError('Username or password invalid', 'UnauthorizedError');
     }
 
     const { id, ...userWithoutId } = user;
