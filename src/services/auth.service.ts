@@ -27,6 +27,14 @@ const authService = {
     const token = jwtService.createToken(userWithoutId);
     return token;
   },
+
+  validateToken: (token: string | undefined) => {
+    if (!token) {
+      throw new CustomError('Token not found', 'UnauthorizedError');
+    }
+    const userData = jwtService.validateToken(token);
+    return userData;
+  },
 };
 
 export default authService;
